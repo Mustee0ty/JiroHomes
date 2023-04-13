@@ -30,7 +30,7 @@ const Header = () => {
     <div className='mx-[19px] lg:mr-[3vh] md:mx-[20px] mr-[3px]'>
       <div className='flex justify-between items-center'>
       {/* logo */}
-      <a className={`${bg ?'bg-white rounded-full' : 'bg-accent' }`} href="#">
+      <a className={`${bg ?'bg-white p-1 rounded-full' : 'bg-accent' }`} href="#">
         <img className='h-[60px] w-[60px]' src={Logo} alt="" />
       </a>
       {/* menu icon */}
