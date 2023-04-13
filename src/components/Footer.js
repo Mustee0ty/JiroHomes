@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
       </div>
            {/* copyright text */}
-           <p className='pb-[30px]'>
+           <p className='pb-[30px] mx-auto container'>
             &copy; Jirohomes Investment Nigeria LTD - All rights reserved 
            </p>
     </div>

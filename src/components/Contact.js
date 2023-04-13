@@ -1,15 +1,22 @@
-import React from 'react'
+import { useState,useRef } from 'react'
+import emailjs from '@emailjs/browser';
 
-//import useRef
-import { useRef } from 'react'
 
 const Contact = () => {
 
-  const form = useRef()
+  const form = useRef();
 
-  const sendEmail = () =>{
-    
-  }
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_1omnjes', 'template_ez87hvn', form.current, 'db--MMosc9Ag_WeqX')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset()
+  };
 
   return (
     <section className="py-16 bg-gray-200 scroll-smooth" id='Contact'>
@@ -47,12 +54,12 @@ const Contact = () => {
       <form onSubmit={sendEmail} ref={form} className='space-y-8 w-full max-w-[780px]' >
         <div className='flex gap-8 flex-col'>
           <div className='flex-1 flex gap-x-2 gap-y-1 sm:gap-x-4 md:flex-row flex-col justify-apart'>
-            <input className='input border-gray-300 px-3 py-2 rounded-lg w-full shadow-sm focus:outline-none focus:border-gray-600 ' type="text" placeholder='Name' required />
-            <input className='input w-full border-gray-300 px-3 py-2 justify-end rounded-lg shadow-sm focus:outline-none focus:border-gray-600' type="text" placeholder='Surname' required/>
+            <input className='input border-gray-300 px-3 py-2 rounded-lg w-full shadow-sm focus:outline-none focus:border-gray-600 ' type="text" name='user_name' placeholder='Name' required />
+            <input className='input w-full border-gray-300 px-3 py-2 justify-end rounded-lg shadow-sm focus:outline-none focus:border-gray-600' name='user_surname' type="text" placeholder='Surname' required/>
           </div>
          
-          <input className='w-full border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none' type="text" placeholder='Your email' required />
-          <textarea className='input border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none h-[300px] placeholder-justify-start' type="text" placeholder='Your message' required/>
+          <input className='w-full border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none' type="text" name='user_email' placeholder='Your email' required />
+          <textarea className='input border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none h-[300px] placeholder-justify-start' type="text" placeholder='Your message'  name='message' required/>
           <button type='submit' className='w-[150px] rounded-md p-1 h-[60px] hover:bg-[#ac7d20] bg-secondary text-white text-md duration-300'>Send Message</button>
         </div>
       </form>

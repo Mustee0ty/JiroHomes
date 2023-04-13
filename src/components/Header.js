@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 //import logo
-import Logo from '../assets/img/JiroLogo.jpg'
+import Logo from '../assets/img/house-banner.png'
 
 // import icons
 import { CgMenuRight, CgClose } from 'react-icons/cg';
@@ -22,7 +22,7 @@ const Header = () => {
   })
 
   return  (
-    <header className={`${bg ? 'bg-primary py-2 lg:py-3' : 'bg-accent' } fixed left-0 h-[87px] w-screen py-3 z-10 translation-all duration-200`} id='Header'
+    <header className={`${bg ? 'bg-primary py-2 lg:py-3' : 'bg-accent' } fixed left-0 h-[87px] px-4 w-screen py-3 z-10 translation-all duration-200`} id='Header'
     data-aos='fade-down'
     data-aos-delay='700'
     data-aos-duration='800'
@@ -30,7 +30,7 @@ const Header = () => {
     <div className='mx-[19px] lg:mr-[3vh] md:mx-[20px] mr-[3px]'>
       <div className='flex justify-between items-center'>
       {/* logo */}
-      <a href="#">
+      <a className={`${bg ?'bg-white rounded-full' : 'bg-accent' }`} href="#">
         <img className='h-[60px] w-[60px]' src={Logo} alt="" />
       </a>
       {/* menu icon */}
